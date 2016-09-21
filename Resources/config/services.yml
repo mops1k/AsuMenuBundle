@@ -1,0 +1,28 @@
+services:
+    asu.menu.collection:
+        class: Asu\MenuBundle\Service\MenuCollection
+
+    asu.builder.collection:
+        class: Asu\MenuBundle\Service\BuilderCollection
+
+    asu.menu.base_menu:
+        abstract: true
+        arguments:
+            - '@router'
+            - '@security.authorization_checker'
+
+    asu.menu.factory:
+        class: Asu\MenuBundle\Factory\MenuFactory
+        arguments:
+            - '@asu.menu.collection'
+            - '@asu.builder.collection'
+        calls:
+            - [ 'setContainer', [ '@service_container' ]]
+
+    asu.menu.twig_extension:
+        class: Asu\MenuBundle\Twig\MenuExtension
+        arguments:
+            - '@asu.menu.factory'
+            - '@twig'
+        tags:
+            - { name: twig.extension, alias: asu_menu }

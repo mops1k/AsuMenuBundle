@@ -1,0 +1,28 @@
+{
+    "name": "asu/menu-bundle",
+    "description": "Menu bundle for ASU system",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Aleksandr Kvintilyanov",
+            "email": "bednyj.mops@gmail.com"
+        }
+    ],
+    "keywords": [ "symfony", "menu" ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "~2.7|~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Asu\\MenuBundle\\": "."
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
